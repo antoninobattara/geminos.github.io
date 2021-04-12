@@ -1,0 +1,17 @@
+html,body{height:100%;}
+body{background: #eee}
+
+.Beyond{text-decoration:none;}
+.PureClean{text-decoration:none;}
+
+.animate{
+	-webkit-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+}
+
+
+.inizio{background: #333}
+.menu{float:right;margin:0;padding:0;}
+.menu__item{display: inline-block;}
+.menu__item a{color: #fff; display: block;padding: 20px;}
+.menu__item a:hover{background: #000}

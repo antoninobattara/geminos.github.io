@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="IT">
+<head>
+<meta charset="UTF-8">
+	<title>document</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+	<link rel="stylesheet" href="style.css">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="Viewport" content="width=device-width, initial-scale=1">
+	
+	
+</head>
+<!-- struttura modulare:
+modulo che posso spostare indipendemente nel mio sito
+!-->
+<body>
+
+	<header class="header clearfix"><!-- creazione dell'header!-->
+	<div class="header__logo"><h1>GEMINOS</h1></div><!-- logo Ditta/Sito!-->
+	<a href="" class="header__icona"><!-- creazione delle righe del menu a tendina!-->
+	<span></span><!-- creazione della riga del menu, puoi crearne quanti ne vuoi!-->
+	<span></span>
+	<span></span>
+	</a>
+	<ul class="header__menu animate"><!-- creazione delle voci del menu!-->
+	<h2><!-- <ul> tag che serve per creare un elenco puntato!-->
+		<li class="header__menu__item"><a href="#CS" class="Chisiamo">Chi Siamo</a></li>
+		<li class="header__menu__item"><a href="#PR" class="Prodotti">Prodotti</a></li>
+		<li class="header__menu__item"><a href="Active.html" class="ActivePure">ActivePure</a></li>
+		<li class="header__menu__item"><a href="Anima.html" class="AnimaGenomis">Anima Genomis</a></li>
+		<li class="header__menu__item"><a href="#contatt" class="Contatti">Contatti</a></li><!-- usare <a href="#nome"> come link interno della pagina!-->
+		<li class="header__menu__item"><a href="#novità" class="News">News</a></li>
+	</h2>
+	</ul>
+</header>
+
+<!-- incomincio a creare sezioni!-->
+<section class="cover">
+	<div class="cover__filter">
+		<div class="cover__caption">
+			<div class="cover__caption__copy">
+			<h1>Primary message of the home</h2>
+			<h2>Subtitle of the home page</h2>
+			<a href="" class="button"> Call to action</a>
+			</div>
+		</div>
+	</div>
+</section>
+ <!-- creo un altra sezione, posso crearne quante ne voglio!-->
+ <section class="cards clearfix">
+	<div class="card">
+		<img class="card-image" src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+		<div class="card-copy">
+			<a href="" class=""><h3>Titolo card</h3></a>
+			<p>Ciao a tutti</p>
+		</div>
+	</div>
+		<div class="card">
+		<img class="card-image" src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+		<div class="card-copy">
+			<h3>Titolo card</h3>
+			<p>Ciao a tutti</p>
+		</div>
+	</div>
+		<div class="card">
+		<img class="card-image" src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+		<div class="card-copy">
+			<h3>Titolo card</h3>
+			<p>Ciao a tutti</p>
+		</div>
+	</div>
+</section>
+
+<!--banner sezione!-->
+<section class="banner clearfix">
+	<div class="banner__image"></div>
+	<div class="banner__copy">
+	<div class="banner__copy__text">
+	<h3>banner</h3>
+	<h5>sotttotitolo</h5>
+	</div>
+	</div>
+</section>
+<!--layout per il sito e pagine interne!-->
+<!-- prova di un link interno usare <a name=""> come tag, nel punto della pagina dove si vuole andare!-->
+<section class="link"><a name="contatt"></a>
+<!--creazione sezione contatti!-->
+<div class="form">
+<form name="formmail" method="post" action="forum.php" onsubmit="return controlloForm()">
+</div>
+  <input type="hidden" name="successo" value="http://www.miosito.com/pagina-successo.html">
+<div class="label">
+  <label for="nome">Nome e Cognome</label>
+  <input type="text" id="nome" name="nome" placeholder="Inserisci Nome e Cognome">
+
+  <label for="email">Email</label>
+  <input type="text" id="email" name="email" placeholder="Indirizzo di posta elettronica">
+
+  <label for="tel">Telefono</label>
+  <input type="text" id="tel" name="tel" placeholder="Numero di telefono">
+
+  <label for="msg">Messaggio</label>
+  <textarea id="msg" name="msg" placeholder="Scrivi il tuo messaggio"></textarea>
+
+  <input type="submit" value="Invia Richiesta">
+</div>
+</section>
+
+
+
+<footer class="footer">
+<p> Copiright - 2021 Antonino/Adriano-Battara</p>
+</footer>
+
+
+<!-- cover2
+<section class="cover2">
+	<div class="cover__filter2">
+		<div class="cover__caption2">
+			<div class="cover__caption__copy2">
+			<h1>Primary message of the home</h2>
+			<h2>Subtitle of the home page</h2>
+			<a href="" class="button"> Call to action</a>
+			</div>
+		</div>
+	</div>
+</section>!-->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+
+		$(".header__icona").click(function(e){
+		
+			$(".header__menu").toggleClass('is-open');
+			e.preventDefault();
+		}
+		
+	});
+
+
+</script>
+<!-- codice javascript per la verifica dell'email della sezione contatti!-->
+<script>
+function verificaEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+function controlloForm() {
+  var nome = document.forms["formmail"]["nome"].value;
+  var email = document.forms["formmail"]["email"].value;
+  var tel = document.forms["formmail"]["tel"].value;
+  var msg = document.forms["formmail"]["msg"].value;
+
+  if (nome == "" || email == "" || msg == "") {
+    alert("I campi Nome, Email e Messaggio sono obbligatori!");
+    return false;
+  }
+  else if (verificaEmail(email) !== true) {
+    alert("L'indirizzo email non sembra corretto!");
+    return false;  
+  }else{
+    return true;
+  }
+}
+</script>
+</body>
+</html>
